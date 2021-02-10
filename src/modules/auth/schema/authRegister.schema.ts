@@ -17,13 +17,12 @@ const AuthRegisterDocumentSchema = new Schema({
         type: String,
         required: true
     }
-})
+}, { _id: false })
 AuthRegisterDocumentSchema.index({ tipo_documento: 1, numero_documento: 1 }, { unique: true });
 
 export const AuthRegisterSchema = new Schema({
     documento_usuario: {
-        type: AuthRegisterDocumentSchema,
-        unique: false
+        type: AuthRegisterDocumentSchema
     },
     correo: {
         type: String,
